@@ -1,0 +1,123 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|c:\\programacion_aplicada_1\\danluis_ap1_p1\\services\\modelo1service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|solutionrelative:services\\modelo1service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|c:\\programacion_aplicada_1\\danluis_ap1_p1\\components\\pages\\modelo1\\modelo1create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|solutionrelative:components\\pages\\modelo1\\modelo1create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|c:\\programacion_aplicada_1\\danluis_ap1_p1\\components\\pages\\modelo1\\modelo1index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|solutionrelative:components\\pages\\modelo1\\modelo1index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|c:\\programacion_aplicada_1\\danluis_ap1_p1\\context\\contexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|solutionrelative:context\\contexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|c:\\programacion_aplicada_1\\danluis_ap1_p1\\models\\modelo1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|solutionrelative:models\\modelo1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|c:\\programacion_aplicada_1\\danluis_ap1_p1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED44FC90-DF8C-BF24-1A52-F8F51E7FF2B8}|DANLUIS_AP1_P1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Modelo1Create.razor",
+              "DocumentMoniker": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Components\\Pages\\Modelo1\\Modelo1Create.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Modelo1\\Modelo1Create.razor",
+              "ToolTip": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Components\\Pages\\Modelo1\\Modelo1Create.razor",
+              "RelativeToolTip": "Components\\Pages\\Modelo1\\Modelo1Create.razor",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-05T21:29:19.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Modelo1.cs",
+              "DocumentMoniker": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Models\\Modelo1.cs",
+              "RelativeDocumentMoniker": "Models\\Modelo1.cs",
+              "ToolTip": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Models\\Modelo1.cs",
+              "RelativeToolTip": "Models\\Modelo1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T20:52:20.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Contexto.cs",
+              "DocumentMoniker": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Context\\Contexto.cs",
+              "RelativeDocumentMoniker": "Context\\Contexto.cs",
+              "ToolTip": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Context\\Contexto.cs",
+              "RelativeToolTip": "Context\\Contexto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T20:51:23.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T20:51:11.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Modelo1Service.cs",
+              "DocumentMoniker": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Services\\Modelo1Service.cs",
+              "RelativeDocumentMoniker": "Services\\Modelo1Service.cs",
+              "ToolTip": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Services\\Modelo1Service.cs",
+              "RelativeToolTip": "Services\\Modelo1Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T20:49:50.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Modelo1Index.razor",
+              "DocumentMoniker": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Components\\Pages\\Modelo1\\Modelo1Index.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Modelo1\\Modelo1Index.razor",
+              "ToolTip": "C:\\programacion_aplicada_1\\DANLUIS_AP1_P1\\Components\\Pages\\Modelo1\\Modelo1Index.razor",
+              "RelativeToolTip": "Components\\Pages\\Modelo1\\Modelo1Index.razor",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-05T20:48:25.475Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

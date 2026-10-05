@@ -1,0 +1,119 @@
+﻿@page "/Modelo1/Index"
+@inject Modelo1Service Modelo1Service
+
+<PageTitle>Registro de Modelo1</PageTitle>
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="card-header d-flex justify-content-between align-center mb-4">
+            <h5 class="card-title">Registro de Modelo1</h5>
+            <a href="/Modelo1/Create" class="btn btn-primary"> <span class="bi bi-plus-square mt-3"></span> Crear</a>
+        </div>
+
+        <div class="card-body">
+            @*labels*@
+            <div class="row">
+                @*Filtrar por*@
+                <div class="col-3">
+                    <label class="col-form-label"><strong>Filtrar por</strong></label>
+                </div>
+                @*ValorFiltro*@
+                <div class="col-4">
+                    <label class="col-form-label"><strong>Búsqueda</strong></label>
+                </div>
+            </div>
+
+            @*Inputs y botones*@
+            <div class="row align-items-center">
+                @*filtro*@
+                <div class="col-3">
+                    <InputSelect class="form-select" @bind-Value="Filtro">
+                        <option value="" selected disabled>Elija una opción</option>
+                        <option value="Nombre">Nombre</option>
+                        <option value="Id">Id</option>
+                    </InputSelect>
+                </div>
+
+                @*Busqueda*@
+                <div class="col-4">
+                    <div class="input-group">
+                        <input class="form-control" @bind="ValorFiltro" placeholder="Buscar" />
+                        <button type="button" class="btn btn-outline-primary bi bi-search" @onclick="Buscar"></button>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-hover">
+                <thead class="table table-striped text-black">
+                    <tr>
+                        <th>Modelo1Id</th>
+                        <th>Nombre</th>
+                        <th>Valor</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ListaModelo1)
+                    {
+                        <tr>
+                            <td>@item.Modelo1Id</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Valor</td>
+                            <td class="text-center">
+                                <a href="/Modelo1/Edit/@item.Modelo1Id" class="btn btn-outline-primary bi bi-pencil-square"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-center mb-4">
+            <label>Cantidad: @ListaModelo1.Count()</label>
+            <label>Total: @ListaModelo1.Sum(m => m.Valor)</label>
+        </div>
+    </div>
+</div>
+
+@code {
+    public List<Modelo1> ListaModelo1 { get; set; } = new List<Modelo1>();
+
+    public string Filtro { get; set; } = string.Empty;
+    public string ValorFiltro { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ListaModelo1 = await Modelo1Service.GetList(m => m.Modelo1Id > 0);
+    }
+
+    private async Task Buscar()
+    {
+        if (ValorFiltro.Trim() != "")
+        {
+            if (Filtro == "Nombre")
+            {
+                ListaModelo1 = await Modelo1Service.GetList(m => m.Nombre.ToLower().Contains(ValorFiltro.ToLower()));
+            }
+            else if (Filtro == "Id")
+            {
+                if (int.TryParse(ValorFiltro, out int idBuscado))
+                {
+                    ListaModelo1 = await Modelo1Service.GetList(m => m.Modelo1Id == idBuscado);
+                }
+                else
+                {
+                    ListaModelo1 = new List<Modelo1>();
+                }
+            }
+        }
+        else
+        {
+            ListaModelo1 = await Modelo1Service.GetList(m => m.Modelo1Id > 0);
+        }
+    }
+
+    private async Task Restablecer()
+    {
+        ListaModelo1 = await Modelo1Service.GetList(m => m.Modelo1Id > 0);
+        Filtro = string.Empty;
+        ValorFiltro = string.Empty;
+    }
+}

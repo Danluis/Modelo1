@@ -1,0 +1,69 @@
+﻿@page "/Modelo1/create"
+@inject Modelo1Service modelo1Service
+@inject ToastService toastService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+@*HTML*@
+<PageTitle>Create</PageTitle>
+<EditForm Model="modelo1" OnValidSubmit="@Guardar">
+    <DataAnnotationsValidator />
+
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-header text-center">
+                <h5>Crear Modelo1</h5>
+            </div>
+
+            <div class="card-body">
+                @*Nombre*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Nombre</strong></label>
+                    <InputText class="form-control" @bind-Value="modelo1.Nombre" />
+                    <ValidationMessage For="@(() => modelo1.Nombre)" />
+                </div>
+
+                @*Valor*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Valor</strong></label>
+                    <InputNumber class="form-control" @bind-Value="modelo1.Valor" />
+                    <ValidationMessage For="@(() => modelo1.Valor)" />
+                </div>
+            </div>
+
+            @*footer*@
+            <div class="card-footer text-center mt-2">
+                <a href="/Modelo1/index" class="btn btn-secondary"> <span class="bi bi-arrow-left"> Volver</span></a>
+                <button type="submit" class="btn btn-primary bi bi-floppy"> Guardar</button>
+            </div>
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+    private Modelo1 modelo1 { get; set; } = new Modelo1();
+
+    private async Task Guardar()
+    {
+        try
+        {
+            var creado = await modelo1Service.Guardar(modelo1);
+
+            if (creado)
+            {
+                toastService.ShowSuccess("El registro ha sido creado exitosamente.");
+                await Task.Delay(2000);
+                NavigationManager.NavigateTo("/Modelo1/index");
+            }
+            else
+            {
+                toastService.ShowError("No se pudo crear el registro.");
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            toastService.ShowError(ex.Message);
+        }
+    }
+}
