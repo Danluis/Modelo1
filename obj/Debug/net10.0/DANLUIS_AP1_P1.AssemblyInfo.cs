@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DANLUIS_AP1_P1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ec660455712efe55b2f8f2fb8c06f350dc2fd63")]
 [assembly: System.Reflection.AssemblyProductAttribute("DANLUIS_AP1_P1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DANLUIS_AP1_P1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

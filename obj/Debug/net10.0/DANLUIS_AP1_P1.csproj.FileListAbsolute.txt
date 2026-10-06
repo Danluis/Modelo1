@@ -2314,3 +2314,5 @@ C:\programacion_aplicada_1\DANLUIS_AP1_P1\obj\Debug\net10.0\compressed\8zpy2iy87
 C:\programacion_aplicada_1\DANLUIS_AP1_P1\obj\Debug\net10.0\compressed\b9kb8m68l6-{0}-w8kxt40k85-w8kxt40k85.gz
 C:\programacion_aplicada_1\DANLUIS_AP1_P1\obj\Debug\net10.0\compressed\fzvxlz1cte-{0}-cj4ojh8vq2-cj4ojh8vq2.gz
 C:\programacion_aplicada_1\DANLUIS_AP1_P1\obj\Debug\net10.0\compressed\imbpux2aew-{0}-tpa8tcwxyn-tpa8tcwxyn.gz
+C:\programacion_aplicada_1\DANLUIS_AP1_P1\obj\Debug\net10.0\DANLUIS_AP1_P1.sourcelink.json
+C:\programacion_aplicada_1\DANLUIS_AP1_P1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

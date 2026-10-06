@@ -35,6 +35,18 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Autor/CreateAutor.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRvclxDcmVhdGVBdXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Autor/EditAutor.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRvclxFZGl0QXV0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Autor/IndexAutor.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRvclxJbmRleEF1dG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,14 +57,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Modelo1/Modelo1Create.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RlbG8xXE1vZGVsbzFDcmVhdGUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/Modelo1/Modelo1Index.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RlbG8xXE1vZGVsbzFJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/programacion_aplicada_1/DANLUIS_AP1_P1/Components/Pages/NotFound.razor]
