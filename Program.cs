@@ -1,5 +1,6 @@
 using DANLUIS_AP1_P1.Components;
 using DANLUIS_AP1_P1.Context;
+using DANLUIS_AP1_P1.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddDbContextFactory<Contexto>(options =>
     options.UseSqlServer(ConStr);
 });
 
+builder.Services.AddScoped<AutorService>();
 builder.Services.AddBlazorBootstrap();
 var app = builder.Build();
 
