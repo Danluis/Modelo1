@@ -1,0 +1,125 @@
+﻿@page "/Autor/Index"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject AutorService AutorService
+@rendermode InteractiveServer
+
+<PageTitle>Consulta de Autor</PageTitle>
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Consulta de Autor</h5>
+            <a href="/Autor/create" class="btn btn-primary">
+                <span class="bi bi-plus-circle"></span> Nuevo Autor
+            </a>
+        </div>
+        <div class="card-body">
+            @*labels*@
+            <div class="row mb-3">
+                @*Filtrar por*@
+                <div class="col-md-4">
+                    <label class="form-label"><span class="bi bi-funnel"></span> Filtrar por</label>
+                    <select class="form-select" @bind="criterioSeleccionado">
+                        <option value="">Elija una opción</option>
+                        <option value="id">Id</option>
+                        <option value="nombres">Nombres</option>
+                        <option value="nacionalidad">Nacionalidad</option>
+                    </select>
+                </div>
+                @*Búsqueda*@
+                <div class="col-md-6">
+                    <label class="form-label">Búsqueda</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar"
+                               @bind="textoBusqueda" @bind:event="oninput"
+                               @onkeyup="ManejarTecla" />
+                        <button class="btn btn-outline-secondary" @onclick="Buscar">
+                            <span class="bi bi-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            @*tabla*@
+            @if (lista is null)
+            {
+                <p>Cargando...</p>
+            }
+            else
+            {
+                <QuickGrid Items="@lista.AsQueryable()" Pagination="@paginacion" Class="table table-striped table-hover">
+                    <PropertyColumn Property="@(m => m.AutorId)" Title="Id" Sortable="true" />
+                    <PropertyColumn Property="@(m => m.Nombres)" Title="Nombres" Sortable="true" />
+                    <PropertyColumn Property="@(m => m.Nacionalidad)" Title="Nacionalidad" Sortable="true" />
+                    <PropertyColumn Property="@(m => m.Sueldo)" Title="Sueldo" Sortable="true" />
+                    <TemplateColumn Title="Opciones">
+                        <a href="@($"/Autor/edit/{context.AutorId}")" class="btn btn-sm btn-outline-primary">
+                            <span class="bi bi-pencil-square"></span> Editar
+                        </a>
+                    </TemplateColumn>
+                </QuickGrid>
+
+                <Paginator State="@paginacion" />
+
+                @*conteo y sumatoria*@
+                <p class="text-muted">Cantidad: @lista.Count</p>
+                <p class="text-muted">Suma de Valor: @lista.Sum(m => m.Sueldo)</p>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Autor>? lista;
+    private string criterioSeleccionado = "";
+    private string textoBusqueda = "";
+    private PaginationState paginacion = new PaginationState { ItemsPerPage = 5 };
+
+    protected override async Task OnInitializedAsync()
+    {
+        lista = await AutorService.GetList(m => true);
+    }
+
+    private async Task ManejarTecla(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await Buscar();
+        }
+    }
+
+    private async Task Buscar()
+    {
+        if (string.IsNullOrWhiteSpace(textoBusqueda) || string.IsNullOrEmpty(criterioSeleccionado))
+        {
+            lista = await AutorService.GetList(m => true);
+            return;
+        }
+
+        switch (criterioSeleccionado)
+        {
+            case "id":
+                if (int.TryParse(textoBusqueda, out int idBuscado))
+                {
+                    lista = await AutorService.GetList(m => m.AutorId == idBuscado);
+                }
+                else
+                {
+                    lista = new List<Autor>();
+                }
+                break;
+
+            case "nombres":
+                lista = await AutorService.GetList(m => m.Nombres.Contains(textoBusqueda));
+                break;
+
+            case "nacionalidad":
+                lista = await AutorService.GetList(m => m.Nacionalidad.Contains(textoBusqueda));
+                break;
+
+            default:
+                lista = await AutorService.GetList(m => true);
+                break;
+        }
+    }
+}

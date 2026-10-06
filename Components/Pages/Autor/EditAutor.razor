@@ -1,0 +1,153 @@
+﻿@page "/Autor/edit/{AutorId:int}"
+@inject AutorService autorService
+@inject ToastService toastService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+@*HTML*@
+<PageTitle>Modificar Autor</PageTitle>
+
+<EditForm Model="autor" OnValidSubmit="@Modificar">
+    <DataAnnotationsValidator />
+
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-header">
+                <h5>Modificar Autor</h5>
+            </div>
+
+            <div class="card-body">
+                @*Nombre*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Nombres</strong></label>
+                    <InputText class="form-control" @bind-Value="autor.Nombres" />
+                    <ValidationMessage For="@(() => autor.Nombres)" />
+                </div>
+
+                @*Nacionalidad*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Nacionalidad</strong></label>
+                    <InputText class="form-control" @bind-Value="autor.Nacionalidad" />
+                    <ValidationMessage For="@(() => autor.Nacionalidad)" />
+                </div>
+
+                  @*Fecha Nacimiento*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>FechaNacimiento</strong></label>
+                    <InputDate class="form-control" @bind-Value="autor.FechaNacimiento" />
+                    <ValidationMessage For="@(() => autor.FechaNacimiento)" />
+                </div>
+
+                @*Sueldo*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Sueldo</strong></label>
+                    <InputNumber class="form-control" @bind-Value="autor.Sueldo" />
+                    <ValidationMessage For="@(() => autor.Sueldo)" />
+                </div>
+            </div>
+
+            @*footer*@
+            <div class="card-footer text-center">
+                <a href="/Autor/index" class="btn btn-secondary">
+                    <span class="bi bi-arrow-left"></span> Volver
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <span class="bi bi-floppy"></span> Modificar
+                </button>
+                <button type="button" class="btn btn-danger" @onclick="Eliminar">
+                    <span class="bi bi-trash"></span> Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@*Modal de confirmación*@
+<div class="modal fade @(mostrarModal ? "show d-block" : "")" tabindex="-1" style="@(mostrarModal ? "background-color: rgba(0,0,0,0.5);" : "")">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" @onclick="CerrarModal"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro de eliminar este registro? Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="CerrarModal">Cancelar</button>
+                <button type="button" class="btn btn-danger" @onclick="ConfirmarEliminar">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int AutorId { get; set; }
+
+    private Autor autor { get; set; } = new Autor();
+    private bool mostrarModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var encontrado = await autorService.Buscar(AutorId);
+        if (encontrado != null)
+        {
+            autor = encontrado;
+        }
+        else
+        {
+            toastService.ShowError("Registro no encontrado");
+            NavigationManager.NavigateTo("/Autor/index");
+        }
+    }
+
+    private async Task Modificar()
+    {
+        try
+        {
+            var actualizado = await autorService.Guardar(autor);
+
+            if (actualizado)
+            {
+                toastService.ShowSuccess("Registro modificado correctamente");
+                NavigationManager.NavigateTo("/Autor/index");
+            }
+            else
+            {
+                toastService.ShowError("No se pudo modificar el registro");
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            toastService.ShowError(ex.Message);
+        }
+    }
+
+    private void Eliminar()
+    {
+        mostrarModal = true;
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
+
+    private async Task ConfirmarEliminar()
+    {
+        mostrarModal = false;
+
+        var eliminado = await autorService.Eliminar(autor.AutorId);
+
+        if (eliminado)
+        {
+            toastService.ShowSuccess("Registro eliminado correctamente");
+            NavigationManager.NavigateTo("/Autor/index");
+        }
+        else
+        {
+            toastService.ShowError("No se pudo eliminar el registro");
+        }
+    }
+}

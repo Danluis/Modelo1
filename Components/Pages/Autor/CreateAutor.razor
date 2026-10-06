@@ -1,0 +1,83 @@
+﻿@page "/Autor/create"
+@inject AutorService autorService
+@inject ToastService toastService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+@*HTML*@
+<PageTitle>Create</PageTitle>
+<EditForm Model="autor" OnValidSubmit="@Guardar">
+    <DataAnnotationsValidator />
+
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-header text-center">
+                <h5>Crear Autor</h5>
+            </div>
+
+            <div class="card-body">
+                @*Nombre*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Nombres</strong></label>
+                    <InputText class="form-control" @bind-Value="autor.Nombres" />
+                    <ValidationMessage For="@(() => autor.Nombres)" />
+                </div>
+
+                 @*Nacionalidad*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Nacionalidad</strong></label>
+                    <InputText class="form-control" @bind-Value="autor.Nacionalidad" />
+                    <ValidationMessage For="@(() => autor.Nacionalidad)" />
+                </div>
+
+                  @*Fecha Nacimiento*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>FechaNacimiento</strong></label>
+                    <InputDate class="form-control" @bind-Value="autor.FechaNacimiento" />
+                    <ValidationMessage For="@(() => autor.FechaNacimiento)" />
+                </div>
+                
+                @*Sueldo*@
+                <div class="mb-3">
+                    <label class="form-label"><strong>Sueldo</strong></label>
+                    <InputNumber class="form-control" @bind-Value="autor.Sueldo" />
+                    <ValidationMessage For="@(() => autor.Sueldo)" />
+                </div>
+            </div>
+
+            @*footer*@
+            <div class="card-footer text-center mt-2">
+                <a href="/Autor/index" class="btn btn-secondary"> <span class="bi bi-arrow-left"> Volver</span></a>
+                <button type="submit" class="btn btn-primary bi bi-floppy"> Guardar</button>
+            </div>
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+    private Autor autor { get; set; } = new Autor();
+
+    private async Task Guardar()
+    {
+        try
+        {
+            var creado = await autorService.Guardar(autor);
+
+            if (creado)
+            {
+                toastService.ShowSuccess("El registro ha sido creado exitosamente.");
+                await Task.Delay(2000);
+                NavigationManager.NavigateTo("/Autor/index");
+            }
+            else
+            {
+                toastService.ShowError("No se pudo crear el registro.");
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            toastService.ShowError(ex.Message);
+        }
+    }
+}
