@@ -9,8 +9,20 @@ public class AutorService(
     IDbContextFactory<Contexto> DbFactory
     ) : Aplicada1.Core.IService<Autor, int>
 {
+    public async Task<bool> NombreExiste(string nombres, int autorIdActual)
+    {
+        await using var contexto = await DbFactory.CreateDbContextAsync();
+        return await contexto.Autorc
+            .AnyAsync(a => a.Nombres == nombres && a.AutorId != autorIdActual);
+    }
+
     public async Task<bool> Guardar(Autor entidad)
     {
+        if (await NombreExiste(entidad.Nombres, entidad.AutorId))
+        {
+            throw new InvalidOperationException("Ya existe un autor con ese nombre.");
+        }
+
         if (!await Existe(entidad.AutorId))
         {
             return await Insertar(entidad);
